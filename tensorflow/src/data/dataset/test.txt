@@ -1,0 +1,1 @@
+/data2/personal_folders/lmy/program/tensorflow_yolov3/data/dataset/hand032501.jpg 435,317,562,511,0

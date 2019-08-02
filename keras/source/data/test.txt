@@ -1,0 +1,1 @@
+/home/ubuntu/lmy/program/keras-YOLOv3-mobilenet/data/hand032501.jpg 435,317,562,511,0

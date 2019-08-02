@@ -1,0 +1,6 @@
+主要参考：qqwweee/keras-yolo3与YunYang1994/tensorflow-yolov3
+内容说明：1、更改上述2位作者yolov3的网络结构为tiny_yolov3，但并不是原始的tiny_yolov3,原始的结构对于我的需求来说还是太大。
+		  2、keras版本的tiny_yolov3可以使用opencv调用dnn模块查看效果，tensorflow版本的tiny_yolov3提供python和win_c版本的模型调用。
+		  3、keras版本的tiny_yolov3可使用的模型格式包括h5与weights，tensorflow版本的tiny_yolov3可使用的模型格式包括ckpt、pb、tflite
+		  4、关于上述2位作者的原始代码在转换tflite时遇到的问题：keras版本中存在tflite转换op不支持的操作，改起来极其费劲，所以直接用opencv调用。tensorflow版本存在的问题共2处：tf.newaxis以及tensor维数问题。（结论是要保存的网络节点op中，不要使用tf.newaxis扩维，使用tf.expand_dims实现扩维即可；tensor控制在4维以内，因为转换tflite时，官方最大只支持4维op。tiny_yolov3已更改）
+		  5、关于2个版本的tiny_yolov3结果，由于我的应用场景比较简单，所以小的网络已经够用。opencv版本的运行时间是tflite版本的2倍多，效果无差异。
